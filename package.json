@@ -1,0 +1,26 @@
+{
+  "name": "server.remotely",
+  "version": "1.0.0",
+  "main": "index.js",
+  "scripts": {
+    "clean": "rimraf dist/*",
+    "dev": "tsx watch index.ts",
+    "start": "node --enable-source-maps dist/index.js",
+    "build": "npm run clean && tsc && node ./node_modules/esbuild/install.js && esbuild index.ts --platform=node --format=esm --outfile=dist/index.js"
+  },
+  "keywords": [],
+  "author": "",
+  "license": "ISC",
+  "description": "",
+  "dependencies": {
+    "ws": "^8.18.3"
+  },
+  "devDependencies": {
+    "@types/ws": "^8.18.1",
+    "concurrently": "^9.2.1",
+    "esbuild": "^0.25.9",
+    "rimraf": "^6.0.1",
+    "tsx": "^4.20.5",
+    "typescript": "^5.9.2"
+  }
+}

@@ -25,6 +25,7 @@ wss.on('connection', (ws: WebSocket) => {
       const data = JSON.parse(String(msg));
       if (data.type === 'join') {
         joinRoom(data.roomId, ws);
+        console.log("Peer joined room:", data.roomId);
         rooms.get(data.roomId)?.forEach((peer) => {
           if (peer !== ws) peer.send(JSON.stringify({ type: 'peer-join' }));
         });
